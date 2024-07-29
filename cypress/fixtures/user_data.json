@@ -1,0 +1,14 @@
+[
+    {
+        "name": "shahrukh",
+        "email":"shah@email.com",
+        "password":"sample password",
+        "website":"www.youtube.com"
+    },
+    {
+        "name":"awais",
+        "email":"incorrect",
+        "password":"incorrect",
+        "website":"123.gmail"
+    }
+]
