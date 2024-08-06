@@ -49,6 +49,26 @@ Cypress.Commands.add('logInToApplication',()=>{
        // cy.get('[placeholder="Password"]').type('test123!')
        // cy.get('[type="submit"]').click()
    })
+
+   Cypress.Commands.add('StealthLogin',()=>{
+     const credentials={
+        "email": "waseem.ullah@dealershiptoolkit.com",
+        "password": "Allah@1.",
+        "staySignedIn": true
+     }
+     cy.request('POST','https://api.dev.stealthportal.io/api/users/login', credentials)
+     .its('body').then(body =>{
+        const data= body.data
+        const token =body.data.token
+        cy.wrap(token).as('token1')
+        cy.visit('http://localhost:3007/ghost/home',{
+            onBeforeLoad(win){
+                win.localStorage.setItem('user',JSON.stringify({data,token: token, isAuthenticated: true}))
+            }
+        })
+     })
+   })
+
    Cypress.Commands.add('registerApplication',()=>{
        cy.visit('http://localhost:4200/register')
        cy.get('[placeholder="Username"]').type('test123_456')
