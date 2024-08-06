@@ -13,7 +13,7 @@ module.exports = defineConfig({
     viewportWidth: 1920,
     viewportHeight: 1080,
     experimentalStudio: true
-   
+    
   },
   env: {
     "username": "cypress.tester@gmail.com",
@@ -21,6 +21,10 @@ module.exports = defineConfig({
     "apiUrl": "https://api.realworld.io"
   },
   
+  retries:{
+    "runMode":2,
+    "openMode":1
+  },
   "blockHosts": [
     "*fonts.googleapis.com"
   ]

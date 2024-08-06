@@ -21,7 +21,10 @@ describe('stealth using POM',()=>{
     cy.get('#dealershipId-listbox').click()
     
     cy.contains('Visitors & Views').click()
+    cy.wait(2000)
     cy.get(`[data-id="4612223"]`).find('[data-testid="VisibilityOutlinedIcon"]').click()
-cy.get('[data-testid="PostAddIcon"]').click()
+    cy.get('[data-testid="PostAddIcon"]').click()
+    cy.get('#form-dialog-title button').click()
+    
     })
 })
