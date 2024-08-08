@@ -14,7 +14,7 @@ describe('stealth using POM',()=>{
     cy.get('[data-id="4612223"]').find('[data-testid="VisibilityOutlinedIcon"]').click()
 
     })
-    it.only('Login using API',()=>{
+    it('Login using API',()=>{
         cy.StealthLogin()
        // cy.visit('http://localhost:3007/ghost/home')
         cy.get('#dealershipId').click().clear().type('Great American RV SuperStores')
@@ -25,6 +25,14 @@ describe('stealth using POM',()=>{
     cy.get(`[data-id="4612223"]`).find('[data-testid="VisibilityOutlinedIcon"]').click()
     cy.get('[data-testid="PostAddIcon"]').click()
     cy.get('#form-dialog-title button').click()
-    
+    })
+
+    it.only('web page urls from env',()=>{
+        cy.visit(Cypress.env('webUrl'),{headers:{"Accept-Encoding":"gzip, deflate"}})
+        cy.get('#email').type('test@email.com')
+        cy.get('.css-1ogakd7 > .MuiFormControl-root > .MuiOutlinedInput-root > .MuiOutlinedInput-input').type('test123')
+        cy.get('#login').click()
+        
+
     })
 })

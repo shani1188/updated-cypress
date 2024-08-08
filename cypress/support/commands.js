@@ -52,16 +52,16 @@ Cypress.Commands.add('logInToApplication',()=>{
 
    Cypress.Commands.add('StealthLogin',()=>{
      const credentials={
-        "email": "waseem.ullah@dealershiptoolkit.com",
-        "password": "Allah@1.",
-        "staySignedIn": true
+        "email": Cypress.env('email'),
+        "password": Cypress.env('password'),
+        "staySignedIn": Cypress.env('staySignedIn')
      }
-     cy.request('POST','https://api.dev.stealthportal.io/api/users/login', credentials)
+     cy.request('POST',Cypress.env('url')+'api/users/login', credentials)
      .its('body').then(body =>{
         const data= body.data
         const token =body.data.token
         cy.wrap(token).as('token1')
-        cy.visit('http://localhost:3007/ghost/home',{
+        cy.visit(Cypress.env('webUrl')+'ghost/home',{
             onBeforeLoad(win){
                 win.localStorage.setItem('user',JSON.stringify({data,token: token, isAuthenticated: true}))
             }
