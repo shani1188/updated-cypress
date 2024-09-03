@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 describe("Testing the Cypress on new Laptop",()=>{
   beforeEach(()=>{
-      cy.visit("/")
+      cy.visit("http://localhost:4300/")
       cy.contains("Forms").click()
       cy.contains("Form Layouts").click()
   })
@@ -233,7 +233,7 @@ describe("Testing the Cypress on new Laptop",()=>{
   
   })
   
-  it('Web Tables',()=>{
+  it.only('Web Tables',()=>{
   
       
       cy.contains('Tables & Data').click()
@@ -244,7 +244,7 @@ describe("Testing the Cypress on new Laptop",()=>{
       cy.wrap(tableRow).find('.nb-edit').click()
       cy.wrap(tableRow).find('[placeholder="Age"]').clear().type('25')
       cy.wrap(tableRow).find('.nb-checkmark').click()
-      cy.wrap(tableRow).find('td').eq(6).should('contain','29')
+      cy.wrap(tableRow).find('td').eq(6).should('contain','25')
       })
   
       //2
@@ -305,7 +305,7 @@ describe("Testing the Cypress on new Laptop",()=>{
           })
           return assertDate
       }
-      cy.visit('/')
+      cy.visit('http://localhost:4300/')
       cy.contains("Forms").click()
       cy.contains("Datepicker").click()
       cy.contains('nb-card','Common Datepicker').find('input')

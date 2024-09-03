@@ -2,7 +2,7 @@ describe( "", () =>{
 
     beforeEach(()=>{
 
-        cy.visit("/")
+        cy.visit("http://localhost:4300/")
         cy.contains("Forms").click()
         cy.contains("Form Layouts").click()
     })
@@ -91,5 +91,15 @@ describe( "", () =>{
         cy.get('[class="select-button"]').click()
         cy.contains('Dark').click()
 
+    })
+    it.only('test class value update',()=>{
+        
+        cy.get('nb-search').click()
+        cy.get('nb-search-field').should('have.class','show')
+        .should('have.attr','ng-reflect-show','true')
+        cy.get('.close-button').click()
+        cy.get('nb-search-field')
+        .should('have.attr','ng-reflect-show','false')
+        .should('not.have.class','show')
     })
 })
