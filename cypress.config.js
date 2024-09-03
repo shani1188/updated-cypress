@@ -9,7 +9,6 @@ module.exports = defineConfig({
 
   return getConfigurationByFile(file)
     },
-    baseUrl: 'http://localhost:4200/',
     viewportWidth: 1920,
     viewportHeight: 1080,
     experimentalStudio: true
