@@ -22,8 +22,7 @@ function menuNavigation(nameGroup) {
         //cy.contains("Forms").click()
 
         menuNavigation('Form')
-
-        cy.contains("Datepicker").click()
+        cy.contains("Datepicker").click({force:true})
     }
 
     dataTable(){
