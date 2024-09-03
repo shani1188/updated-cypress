@@ -15,8 +15,8 @@ module.exports = defineConfig({
     
   },
   env: {
-    "username": "cypress.tester@gmail.com",
-    "password": "Test1234",
+    "username": "shahrukh.asghar.92@gmail.com",
+    "password": "Test123!",
     "apiUrl": "https://api.realworld.io"
   },
   
