@@ -32,7 +32,7 @@ describe('Login the new project',()=>{
         .and('contain','API')
     })
 
-    it('verify global ',()=>{
+    it.only('verify global ',()=>{
        // cy.intercept()
         cy.intercept('Get','**/articles/feed*','{"articles":[],"articlesCount":0}')
         cy.intercept('GET','**/articles*',{fixture:'articles.json'})
@@ -49,12 +49,12 @@ describe('Login the new project',()=>{
         cy.get('app-favorite-button button').eq(1).click().should('contain','6')
     })
 
-    it.only('Delete the article from API',()=>{
+    it('Delete the article from API',()=>{
         const bodyRequest={
             "article":   {
-                "title": "test article",
-                "description": "test about ",
-                "body": "description test",
+                "title": "test article12",
+                "description": "test about12 ",
+                "body": "description test1",
                 "tagList": []
             }
         }

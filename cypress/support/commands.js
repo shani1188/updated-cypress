@@ -32,6 +32,8 @@ Cypress.Commands.add('logInToApplication',()=>{
                "password":Cypress.env('password')
                }
            }
+           cy.log(userCredentials)
+        
        cy.request('POST',Cypress.env('apiUrl')+'/api/users/login', userCredentials)
            .its('body').then(body=>{
                const token=body.user.token

@@ -22,7 +22,7 @@ module.exports = defineConfig({
   
   retries:{
     "runMode":2,
-    "openMode":1
+    "openMode":0
   },
   "blockHosts": [
     "*fonts.googleapis.com"

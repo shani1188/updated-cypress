@@ -11,7 +11,7 @@ describe('All Login Tests',()=>{
     
     })
 
-    it.only('Login 1',()=>{
+    it('Login 1',()=>{
         cy.intercept('GET','**/pim/employees/*').as('employee')
         loginPage.enterUsername('Admin')
         loginPage.enterPassword('admin123')
@@ -42,5 +42,31 @@ describe('All Login Tests',()=>{
         loginPage.enterPassword('admin123')
         loginPage.clickLogin()
     })
-    
+    it.only('leaves',()=>{
+        loginPage.enterUsername('Admin')
+        loginPage.enterPassword('admin123')
+        loginPage.clickLogin()
+        Navigate.tabList('Leave')
+        cy.contains('Apply').click()
+        cy.get('.oxd-select-text--arrow').click()
+        cy.contains('.oxd-select-option','CAN - FMLA').should('be.visible').click()
+        cy.get('.oxd-select-text--arrow').click()
+        cy.contains('.oxd-select-option','CAN - FMLA').then(value=>{
+            expect(value).to.have.class('--selected')
+        })
+        cy.contains('.oxd-select-option','CAN - FMLA').should('have.class','--selected')
+        cy.get('.oxd-select-text--arrow').click()
+        cy.contains('.oxd-grid-item','From Date').then(date=>{
+            cy.wrap(date).click()
+            cy.wrap(date).contains('11')
+            .parent()
+            .should('not.have.class','--non-working-day')
+            .children()
+            .click()
+        })
+        cy.contains('.oxd-grid-item','To Date').then(date=>{
+            cy.wrap(date).click()
+            cy.wrap(date).contains('13').click()
+        })
+    })
 })
