@@ -16,7 +16,7 @@ module.exports = defineConfig({
   },
   env: {
     "username": "shahrukh.asghar.92@gmail.com",
-    "password": "Test123!",
+    "apiPassword": "Test123!",
     "apiUrl": "https://api.realworld.io"
   },
   

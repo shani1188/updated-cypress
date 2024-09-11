@@ -4,6 +4,9 @@
         "password": "Allah@1.",
         "staySignedIn": true,
         "url":"https://api.dev.stealthportal.io/",
-        "webUrl":"http://localhost:3007/"
+        "webUrl":"http://localhost:3007/",
+        "apiUrl": "https://api.realworld.io",
+        "username": "shahrukh.asghar.92@gmail.com",
+        "apiPassword": "Test123!"
      }
 }

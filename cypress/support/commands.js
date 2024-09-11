@@ -29,7 +29,7 @@ Cypress.Commands.add('logInToApplication',()=>{
     const userCredentials={
              "user":{ 
                "email":Cypress.env('username'),
-               "password":Cypress.env('password')
+               "password":Cypress.env('apiPassword')
                }
            }
            cy.log(userCredentials)
@@ -58,6 +58,9 @@ Cypress.Commands.add('logInToApplication',()=>{
         "password": Cypress.env('password'),
         "staySignedIn": Cypress.env('staySignedIn')
      }
+     cy.log(credentials)
+     cy.log(credentials.email)
+     cy.log(credentials.password)
      cy.request('POST',Cypress.env('url')+'api/users/login', credentials)
      .its('body').then(body =>{
         const data= body.data

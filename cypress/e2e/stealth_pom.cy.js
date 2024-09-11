@@ -23,7 +23,7 @@ describe('stealth using POM',()=>{
     
     cy.contains('Visitors & Views').click()
     cy.wait('@visitor&views').then(visitor=>{
-        cy.get('[data-id="4626062"]').find('[data-testid="VisibilityOutlinedIcon"]').click()
+        cy.get('[data-id="5642627"]').find('[data-testid="VisibilityOutlinedIcon"]').click()
     })
     cy.get('[data-testid="PostAddIcon"]').click()
     cy.get('#form-dialog-title button').click()
