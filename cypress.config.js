@@ -11,8 +11,7 @@ module.exports = defineConfig({
     },
     viewportWidth: 1920,
     viewportHeight: 1080,
-    experimentalStudio: true
-    
+    experimentalStudio: true,
   },
   env: {
     "username": "shahrukh.asghar.92@gmail.com",

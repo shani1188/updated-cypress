@@ -69,9 +69,5 @@ describe('All Login Tests',()=>{
             cy.wrap(date).contains('13').click()
         })
     })
-    it.only('test',()=>{
-        /* ==== Generated with Cypress Studio ==== */
-        cy.visit('https://www.youtube.com/');
-        /* ==== End Cypress Studio ==== */
-    })
+   
 })
