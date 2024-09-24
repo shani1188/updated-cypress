@@ -288,7 +288,7 @@ describe("Testing the Cypress on new Laptop",()=>{
   
   
   })
-  it('Date picker',()=>{
+  it.only('Date picker',()=>{
       function selectDayFromCurrent(day){
           let date = new Date()
           date.setDate(date.getDate()+day)
