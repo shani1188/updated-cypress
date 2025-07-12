@@ -24,4 +24,18 @@ export class navigate{
         cy.contains('a',tab).click()
         
     }
+    uploadandDownload() {
+        cy.fixture('asad.pdf', 'binary')
+            .then(Cypress.Blob.binaryStringToBlob)
+            .then(fileContent => {
+                cy.get('.oxd-file-input').attachFile({
+                    fileContent,
+                    fileName: 'asad.pdf',
+                    mimeType: 'file/pdf'
+                });
+            });
+        }
+    textfield(heading,value){
+        cy.contains('.oxd-input-group',heading).find('[placeholder="Type here"]').type(value)
+    }
 }

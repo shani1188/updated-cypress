@@ -57,6 +57,7 @@ describe('Login the new project',()=>{
                 "body": "description test1",
                 "tagList": []
             }
+            
         }
 
         cy.get('@token').then(token=>{

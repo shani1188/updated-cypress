@@ -16,5 +16,8 @@
   "dependencies": {
     "@applitools/eyes-cypress": "^3.44.2",
     "cypress": "^13.6.6"
+  },
+  "devDependencies": {
+    "cypress-file-upload": "^5.0.8"
   }
 }

@@ -31,7 +31,7 @@ describe( "", () =>{
         // this is test asdfasdf
 
     })
-    it("fourth test case Horizontal form",()=>{
+    it.only("fourth test case Horizontal form",()=>{
         cy.contains('Horizontal form')
         cy.get('#inputEmail3').type('noman@email.com')
         cy.get('#inputPassword3').type('noman123')
@@ -92,7 +92,7 @@ describe( "", () =>{
         cy.contains('Dark').click()
 
     })
-    it.only('test class value update',()=>{
+    it('test class value update',()=>{
         
         cy.get('nb-search').click()
         cy.get('nb-search-field').should('have.class','show')

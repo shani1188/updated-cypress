@@ -42,19 +42,19 @@ describe('All Login Tests',()=>{
         loginPage.enterPassword('admin123')
         loginPage.clickLogin()
     })
-    it.only('leaves',()=>{
+    it('leaves',()=>{
         loginPage.enterUsername('Admin')
         loginPage.enterPassword('admin123')
         loginPage.clickLogin()
         Navigate.tabList('Leave')
         cy.contains('Apply').click()
         cy.get('.oxd-select-text--arrow').click()
-        cy.contains('.oxd-select-option','CAN - FMLA').should('be.visible').click()
+        cy.contains('.oxd-select-option','CAN - Bereavement').should('be.visible').click()
         cy.get('.oxd-select-text--arrow').click()
-        cy.contains('.oxd-select-option','CAN - FMLA').then(value=>{
+        cy.contains('.oxd-select-option','CAN - Bereavement').then(value=>{
             expect(value).to.have.class('--selected')
         })
-        cy.contains('.oxd-select-option','CAN - FMLA').should('have.class','--selected')
+        cy.contains('.oxd-select-option','CAN - Bereavement').should('have.class','--selected')
         cy.get('.oxd-select-text--arrow').click()
         cy.contains('.oxd-grid-item','From Date').then(date=>{
             cy.wrap(date).click()
@@ -68,6 +68,38 @@ describe('All Login Tests',()=>{
             cy.wrap(date).click()
             cy.wrap(date).contains('13').click()
         })
+        cy.contains('.oxd-input-group','Partial Days').then(partialDay=>{
+            cy.wrap(partialDay).click()
+            cy.contains('.oxd-select-option','Start and End Day').click()
+            cy.contains('.oxd-grid-item','Start Day').should('be.visible')
+            cy.contains('.oxd-grid-item','Start Day')
+            .find('.oxd-select-text-input')
+            .click()
+            cy.contains('Half Day - Afternoon').click()
+            })
     })
-   
+
+    it.only('Add new Candidate',()=>{
+        loginPage.enterUsername('Admin')
+        loginPage.enterPassword('admin123')
+        loginPage.clickLogin()
+        Navigate.tabList('Recruitment')
+        cy.contains(' Add ').click()
+        cy.get('[name="firstName"]').type('Shahrukh')
+        cy.get('[name="lastName"]').type('Asghar')
+        cy.get('.oxd-select-text-input').click()
+        cy.contains('Senior QA Lead').click()
+        Navigate.textfield('Email','shahrukh.asghar.92@gmail.com')
+        Navigate.textfield('Contact Number','03027871188')
+        cy.get('.oxd-file-button').click()
+        cy.get('.oxd-file-input').selectFile('cypress/fixtures/asad.pdf',{force: true})
+        // cy.wait(5000);
+        //Navigate.uploadandDownload()
+        cy.get('[placeholder="Enter comma seperated words..."]').type('A new candidate is onboarded')
+        cy.get('[placeholder="yyyy-dd-mm"]').click()
+        cy.contains('.oxd-calendar-date-wrapper','12').click()
+        cy.get('div > textarea[placeholder="Type here"]').type('This is a strong candidate please take a look at it.')
+        cy.get('.oxd-checkbox-input > .oxd-icon').click()
+        cy.contains(' Save ').click()
+    })
 })

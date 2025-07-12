@@ -6,8 +6,6 @@ describe("stealth starting", ()=>{
         cy.get('#email').type('waseem.ullah@dealershiptoolkit.com')
         cy.get('#password').type('Allah@1.')
         cy.get('#login').click()
-        cy.get('#dealershipId').click().clear().type('Great American RV SuperStores')
-        cy.get('#dealershipId-listbox').click()
         cy.contains('Appointments').click()
         cy.contains('Create Appointment').click()
         //cy.get('#email').click().type('shahrukh.asghar@datics.ai')
