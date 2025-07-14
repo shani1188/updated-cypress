@@ -1,7 +1,7 @@
 {
     "env":{
-        "email": "waseem.ullah@dealershiptoolkit.com",
-        "password": "Allah@1.",
+        "email": "waseem.ullah@tester.com",
+        "password": "Tester1.",
         "staySignedIn": true,
         "url":"https://api.dev.stealthportal.io/",
         "webUrl":"http://localhost:3007/",

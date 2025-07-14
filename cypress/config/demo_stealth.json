@@ -1,8 +1,8 @@
 {
     "env":{
-        "email": "shahrukh@coasttech.ai",
-        "password": "admin1122",
+        "email": "shahrukh@tester.com",
+        "password": "Test123!",
         "staySignedIn": true,
-        "url":"https://api.demo.stealthportal.io/"
+        "url":"https://api.qa.stealthportal.io/"
      }
 }
